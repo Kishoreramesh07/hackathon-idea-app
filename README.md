@@ -1,1 +1,0 @@
-# scripbox-interview-task
