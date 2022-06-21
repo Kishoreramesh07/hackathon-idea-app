@@ -3,7 +3,7 @@ import { Card, CardActions, CardContent, Button, Typography } from '@mui/materia
 
 export default function ChallengeCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ boxShadow: '1px 2px 6px 0 rgb(0 0 0 / 10%), inset 1px 1px 0 0 rgb(255 255 255 / 70%)', borderRadius: '4px' }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
@@ -15,7 +15,6 @@ export default function ChallengeCard() {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
   );

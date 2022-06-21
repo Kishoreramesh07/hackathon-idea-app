@@ -7,11 +7,11 @@ import challengesRoutes from './routes/challenges.route.js';
 
 const app = express();
 
-app.use('/challenges', challengesRoutes)
-
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
+
+app.use('/challenges', challengesRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://scripboxInterview:scripboxInterview123@cluster0.qvakv.mongodb.net/?retryWrites=true&w=majority';
 
