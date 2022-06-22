@@ -12,7 +12,6 @@ export const getChallenges = async (req, res) => {
 }
 
 export const createChallenge = async (req, res) => {
-    console.log('Reached post')
     const challenge = req.body;
 
     const newChallenge = new ChallengeMessage(challenge);

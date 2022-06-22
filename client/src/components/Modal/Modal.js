@@ -1,31 +1,53 @@
 import { React, useState } from 'react'
-import { TextField, Dialog, DialogActions, Button, DialogContent, DialogTitle, OutlinedInput, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { TextField, Dialog, DialogActions, Button, DialogContent, DialogTitle, OutlinedInput, InputLabel, MenuItem, FormControl, Select, Snackbar } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { createChallenge } from '../../redux/actions/challenges'
 
 const tags = [
-    'feature',
-    'tech',
-    'engineering',
-    'data',
+    'Feature',
+    'Tech',
+    'Engineering',
+    'Data',
 ];
 
-export default function Modal({ open, handleClose }) {
-    
+export default function Modal({ open, setOpen }) {
+
     const [tagsSelected, setTagsSelected] = useState([]);
     const [challengeData, setChallengeData] = useState({ title: '', description: '', tags: '' });
-    
+    const [openSnackBar, setOpenSnackBar] = useState(false);
+    const [validationError, setValidationError] = useState(null);
+
     const handleSelectedTags = (event) => {
         const { target: { value } } = event;
         setTagsSelected(typeof value === 'string' ? value.split(',') : value);
-        setChallengeData({  ...challengeData, tags: value.join(",") });
+        setChallengeData({ ...challengeData, tags: value.join(",") });
     };
 
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
-        dispatch(createChallenge(challengeData));
+
+        // Validation
+        if (!challengeData.title) {
+            setOpenSnackBar(true)
+            setValidationError('Title is a required field')
+        } else if (!challengeData.description) {
+            setOpenSnackBar(true)
+            setValidationError('Description is a required field')
+        } else if (!tagsSelected.length) {
+            setOpenSnackBar(true)
+            setValidationError('Please selected atleast one tag')
+        } else {
+            dispatch(createChallenge(challengeData));
+            setChallengeData({ title: '', description: '', tags: '' });
+            setTagsSelected([])
+            setOpen(false);
+        }
     }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Dialog open={open} fullWidth maxWidth="xs">
@@ -80,6 +102,7 @@ export default function Modal({ open, handleClose }) {
                 }} onClick={handleSubmit}>Upload Challenge</Button>
                 <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
+            {validationError && <Snackbar autoHideDuration={3000} open={openSnackBar} message={validationError} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} onClose={() => setOpenSnackBar(false)} />}
         </Dialog>
     )
 }

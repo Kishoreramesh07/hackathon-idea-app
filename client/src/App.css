@@ -1,3 +1,8 @@
 body{
     margin: 0;
+    background: #F9FAF1;
+}
+
+.MuiToolbar-root{
+    padding: 0 !important;
 }

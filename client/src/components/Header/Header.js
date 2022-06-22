@@ -9,15 +9,11 @@ export default function Header() {
         setOpen(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     return (
         <>
             <AppBar position="static" sx={{ background: '#fff', borderBottom: 'solid 1px #e4e4e4', boxShadow: 'none' }}>
                 <Container>
-                    <Toolbar sx={{ justifyContent: 'space-between' }}>
+                    <Toolbar sx={{ justifyContent: 'space-between', px: 0 }}>
                         <Box component="img" alt="Scripbox Logo" src="https://asset11.scripbox.com/assets/logo-51c21f8c74532748f6acbc82e354cbe3feb2bb2f8eee49b4ecde59993b2528ba.svg" />
                         <Button variant="contained" sx={{
                             backgroundColor: '#10AC84',
@@ -27,11 +23,11 @@ export default function Header() {
                                 backgroundColor: '#0E8D6D',
                                 boxShadow: 'none',
                             }
-                        }} onClick={handleClickOpen}>Upload</Button>
+                        }} onClick={handleClickOpen}>Add Challenge</Button>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Modal open={open} handleClose={handleClose} />
+            <Modal open={open} setOpen={setOpen} />
         </>
     )
 }

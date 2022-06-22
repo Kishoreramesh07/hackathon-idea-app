@@ -26,10 +26,11 @@ export default function SortChallenge() {
         <Container sx={{pt: 3}}>
             <FormControl size="small">
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography  variant="subtitle2" sx={{pr: 1.5}}>Sort By</Typography>
+                    <Typography  variant="subtitle2" sx={{pr: 1}}>Sort By</Typography>
                     <Select
                         id="sort"
                         value={sortBy}
+                        sx={{ m: 1, minWidth: 150, maxWidth: 150, borderRadius: '25px', background: '#fff', outline: 'none' }}
                         onChange={handleChange}>
                         <MenuItem value="">
                             <em>None</em>
