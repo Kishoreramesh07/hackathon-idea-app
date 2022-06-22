@@ -5,6 +5,7 @@ import { getChallenges } from './redux/actions/challenges'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from "./components/Header/Header";
 import Challenges from "./components/Challenges/Challenges";
+import SortChallenge from "./components/SortChallenge/SortChallenge";
 
 const theme = createTheme({
   typography: {
@@ -27,6 +28,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
+        <SortChallenge />
         <Challenges />
       </div>
     </ThemeProvider>

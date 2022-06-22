@@ -33,3 +33,13 @@ export const likeChallenge = (id) => async ( dispatch) => {
         console.log(error.message)
     }
 }
+
+export const sortChallenge = (sortBy) => async ( dispatch) => {
+    try{
+        const { data } = await api.sortChallenge(sortBy);
+
+        dispatch({ type: 'SORT_CHALLENGE', payload: data });
+    } catch (error) {
+        console.log(error.message)
+    }
+}
