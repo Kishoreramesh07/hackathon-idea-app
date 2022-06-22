@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import ChallengeMessage from "../models/challengeMessage.js"; 
 
 export const getChallenges = async (req, res) => {
@@ -24,5 +25,17 @@ export const createChallenge = async (req, res) => {
         res.status(409).json({  message: error.message })
     }
     
+}
+
+export const likeChallenge = async (req, res) => {
+    const { id } = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message: "No available challenge with that id"});
+
+    const challenge = await ChallengeMessage.findById(id);
+    const updatedChallenge = await ChallengeMessage.findByIdAndUpdate(id, {likeCount: challenge.likeCount + 1}, { new: true});
+
+    res.json(updatedChallenge);
+
 }
 

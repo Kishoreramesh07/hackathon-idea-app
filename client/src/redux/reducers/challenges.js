@@ -1,5 +1,7 @@
 const challenges = (challenges = [], action ) => {
     switch (action.type) {
+        case 'LIKE': 
+            return challenges.map((challenge) => challenge._id === action.payload._id ? action.payload: challenge);
         case 'FETCH_ALL': 
             return action.payload;
         case 'CREATE': 

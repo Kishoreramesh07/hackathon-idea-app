@@ -23,3 +23,13 @@ export const createChallenge = (challenge) => async (dispatch) => {
         console.log(error.message)
     }
 }
+
+export const likeChallenge = (id) => async ( dispatch) => {
+    try{
+        const { data } = await api.likeChallenge(id);
+
+        dispatch({ type: 'LIKE', payload: data });
+    } catch (error) {
+        console.log(error.message)
+    }
+}

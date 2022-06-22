@@ -1,6 +1,6 @@
 import { React } from "react";
 import { useSelector } from "react-redux";
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, CircularProgress } from '@mui/material';
 import ChallengeCard from "./ChallengeCard/ChallengeCard"
 
 const Challenges = () => {
@@ -8,18 +8,16 @@ const Challenges = () => {
 
     console.log(challenges);
     return (
-        <Container>
-            <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
-                    <ChallengeCard />
+        <Container sx={{pt:6}}>
+            {!challenges.length ? <CircularProgress /> : (
+                <Grid container spacing={3}>
+                    {challenges.map((challenge) => (
+                        <Grid key={challenge._id}item xs={12} md={4}>
+                            <ChallengeCard challenge={challenge} />
+                        </Grid>
+                    ))}
                 </Grid>
-                <Grid item xs={12} md={4}>
-                    <ChallengeCard />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <ChallengeCard />
-                </Grid>
-            </Grid>
+            )}
         </Container>
     );
 }
