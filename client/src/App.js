@@ -1,11 +1,11 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import './App.css';
-import { useDispatch } from 'react-redux';
-import { getChallenges } from './redux/actions/challenges'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from "./components/Header/Header";
-import Challenges from "./components/Challenges/Challenges";
-import SortChallenge from "./components/SortChallenge/SortChallenge";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import ProtectedRoutes from './components/Routes/ProtectedRoutes';
+import PublicRoutes from './components/Routes/PublicRoutes';
 
 const theme = createTheme({
   typography: {
@@ -18,18 +18,23 @@ const theme = createTheme({
 });
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(()=>{
-    dispatch(getChallenges());
-  }, [dispatch]);
-
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Header />
-        <SortChallenge />
-        <Challenges />
+        <BrowserRouter>
+          <Routes>
+            {/** Protected Routes */}
+            <Route path="/" element={<ProtectedRoutes />}>
+              <Route path="/" element={<Navigate replace to="challenges" />} />
+              <Route path="challenges" element={<Home />} />
+            </Route>
+
+            {/** Public Routes */}
+            <Route path="login" element={<PublicRoutes />}>
+              <Route path="/login" element={<Login />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </div>
     </ThemeProvider>
   );

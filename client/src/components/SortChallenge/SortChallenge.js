@@ -7,16 +7,16 @@ import { useDispatch } from 'react-redux';
 import { getChallenges, sortChallenge} from '../../redux/actions/challenges'
 
 export default function SortChallenge() {
-    const [sortBy, setSortBy] = useState('');
+    const [sortBy, setSortBy] = useState('None');
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
         const selectedQuery = event.target.value
         setSortBy(selectedQuery);
 
-        if(!!selectedQuery){
+        if(selectedQuery === "likeCount" || selectedQuery === "createdDate"){
             dispatch(sortChallenge(selectedQuery));
-        } else {
+        } else if (selectedQuery === "None") {
             dispatch(getChallenges());
         }
 
@@ -24,7 +24,8 @@ export default function SortChallenge() {
 
     return (
         <Container sx={{pt: 3}}>
-            <FormControl size="small">
+            <Typography  variant="h5" sx={{pr: 1}}>Hackathon challenges</Typography>
+            <FormControl size="small" sx={{pt: 3}}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography  variant="subtitle2" sx={{pr: 1}}>Sort By</Typography>
                     <Select
@@ -32,7 +33,7 @@ export default function SortChallenge() {
                         value={sortBy}
                         sx={{ m: 1, minWidth: 150, maxWidth: 150, borderRadius: '25px', background: '#fff', outline: 'none' }}
                         onChange={handleChange}>
-                        <MenuItem value="">
+                        <MenuItem value="None">
                             <em>None</em>
                         </MenuItem>
                         <MenuItem value={"likeCount"}>Vote Count</MenuItem>
