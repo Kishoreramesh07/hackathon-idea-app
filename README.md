@@ -2,11 +2,11 @@
 
 Project setup: 
 
-# First setup backend to connect with server and database
+## First setup backend to connect with server and database
 
-## `cd server`
+### `cd server`
 
-## `npm install`
+### `npm install`
 
 Install all dependencies into the project
 
@@ -16,11 +16,11 @@ Starts the server with [http://localhost:8082](http://localhost:8082).
 
 API end point to get ideas/challenges [http://localhost:8082/challenges]
 
-# Second setup client to view the frontend
+## Second setup client to view the frontend
 
-## `cd client`
+### `cd client`
 
-## `npm install`
+### `npm install`
 
 Install all dependencies into the project
 

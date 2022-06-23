@@ -8,7 +8,7 @@ const Challenges = () => {
 
     console.log(challenges);
     return (
-        <Container sx={{ py: 6 }}>
+        <Container sx={{ pt: 3.5, pb: 6 }}>
             {!challenges.length ? <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 100, maxHeight: 100 }}>
                 <CircularProgress />
             </Box> : (

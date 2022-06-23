@@ -23,15 +23,15 @@ export default function SortChallenge() {
     };
 
     return (
-        <Container sx={{pt: 3}}>
-            <Typography  variant="h5" sx={{pr: 1}}>Hackathon challenges</Typography>
+        <Container sx={{pt: 4.5}}>
+            <Typography  variant="h5">Hackathon challenges</Typography>
             <FormControl size="small" sx={{pt: 3}}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography  variant="subtitle2" sx={{pr: 1}}>Sort By</Typography>
                     <Select
                         id="sort"
                         value={sortBy}
-                        sx={{ m: 1, minWidth: 150, maxWidth: 150, borderRadius: '25px', background: '#fff', outline: 'none' }}
+                        sx={{ m: 1, minWidth: 150, maxWidth: 150, borderRadius: '25px', background: '#fff', outline: 'none', maxHeight: '36px' }}
                         onChange={handleChange}>
                         <MenuItem value="None">
                             <em>None</em>
