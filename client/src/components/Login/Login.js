@@ -33,7 +33,6 @@ export default function Login() {
                 <DialogContent>
                     <TextField autoFocus margin="dense" id="name" label="Employee ID" type="text" fullWidth variant="outlined" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} sx={{ background: '#f7f7fa', color: '#495057' }} inputProps={{ maxLength: 3 }}/>
                 </DialogContent>
-                <>{console.log(isNaN(employeeId))}</>
                 <DialogActions sx={{ justifyContent: 'center', pb: '24px' }}>
                     <Button onClick={updateEmployeeId} variant="contained" sx={{
                         backgroundColor: '#10AC84',

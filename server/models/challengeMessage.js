@@ -10,8 +10,7 @@ const challengeSchema = mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: new Date(),
-        timestamps: true
+        default: new Date()
     },
 })
 

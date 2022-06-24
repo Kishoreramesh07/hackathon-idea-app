@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { TextField, Dialog, DialogActions, Button, DialogContent, DialogTitle, OutlinedInput, InputLabel, MenuItem, FormControl, Select, Snackbar } from '@mui/material';
+import { TextField, Dialog, DialogActions, Button, DialogContent, DialogTitle, OutlinedInput, InputLabel, MenuItem, FormControl, Select, Snackbar, Checkbox, ListItemText } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { createChallenge } from '../../redux/actions/challenges'
 
@@ -36,7 +36,7 @@ export default function Modal({ open, setOpen }) {
             setValidationError('Description is a required field')
         } else if (!tagsSelected.length) {
             setOpenSnackBar(true)
-            setValidationError('Please selected atleast one tag')
+            setValidationError('Please selecte atleast one tag')
         } else {
             dispatch(createChallenge(challengeData));
             setChallengeData({ title: '', description: '', tags: '' });
@@ -76,16 +76,20 @@ export default function Modal({ open, setOpen }) {
                     sx={{ mb: 2 }}
                 />
                 <FormControl fullWidth>
-                    <InputLabel id="tags" >Tags</InputLabel>
+                    <InputLabel id="tags">Tag</InputLabel>
                     <Select
                         labelId="tags"
                         id="tags"
                         multiple
                         value={tagsSelected}
                         onChange={handleSelectedTags}
-                        input={<OutlinedInput label="Tags" />}>
+                        input={<OutlinedInput label="Tag" />}
+                        renderValue={(selected) => selected.join(', ')}>
                         {tags.map((tag) => (
-                            <MenuItem key={tag} value={tag}> {tag}</MenuItem>
+                            <MenuItem key={tag} value={tag}>
+                                <Checkbox checked={tagsSelected.indexOf(tag) > -1} />
+                                <ListItemText primary={tag} />
+                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>

@@ -8,6 +8,7 @@ import { likeChallenge } from '../../../redux/actions/challenges';
 export default function ChallengeCard({ challenge }) {
   const tagsArray = challenge.tags[0].split(',');
   const dispatch = useDispatch();
+  
   return (
     <Card sx={{ boxShadow: '1px 2px 6px 0 rgb(0 0 0 / 10%), inset 1px 1px 0 0 rgb(255 255 255 / 70%)', borderRadius: '4px' }}>
       <CardContent>
@@ -15,7 +16,7 @@ export default function ChallengeCard({ challenge }) {
         <Typography variant="caption">{moment(challenge.createdAt).fromNow()}</Typography>
         <Stack direction="row" spacing={1} sx={{ py: 1.75 }}>
           {tagsArray.map((tag, index) => (
-            <Chip key={index} label={tag} size="small" variant="outlined" sx={{ fontSize: '0.75rem' }} />
+            <Chip key={index} label={tag} size="small" variant="outlined" sx={{ fontSize: '0.75rem', textTransform: 'capitalize' }} />
           ))}
         </Stack>
         <Typography variant="body2" color="text.secondary" sx={{

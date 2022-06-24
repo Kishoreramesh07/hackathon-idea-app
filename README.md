@@ -8,7 +8,7 @@ Project setup:
 
 ### `npm install`
 
-Install all dependencies into the project
+Install all dependencies into the project (Express, Mongoose)
 
 ### `npm start`
 
@@ -29,5 +29,5 @@ Install all dependencies into the project
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
 
-Great, finally, we set up the project. Note: server needs to run retrieve the data for the frontend
+Great, finally, we set up the project. Note: server needs to run to retrieve the data for the frontend
 

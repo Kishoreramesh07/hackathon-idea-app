@@ -5,8 +5,7 @@ import ChallengeCard from "./ChallengeCard/ChallengeCard"
 
 const Challenges = () => {
     const challenges = useSelector((state) => state.challenges);
-
-    console.log(challenges);
+    
     return (
         <Container sx={{ pt: 3.5, pb: 6 }}>
             {!challenges.length ? <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 100, maxHeight: 100 }}>
