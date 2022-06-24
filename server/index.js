@@ -14,6 +14,10 @@ app.use(cors());
 
 app.use('/challenges', challengesRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Hi, Welcome to Hack Ideas')
+});
+
 const PORT = process.env.PORT;
 
 mongoose.connect(process.env.CONNECTION_URL)

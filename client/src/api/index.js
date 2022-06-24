@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8082/challenges';
+const url = 'https://scripbox-interview-task.herokuapp.com/challenges';
 
 export const fetchChallenges = ( ) => axios.get(url);
 export const createChallenge = (newChallenge) => axios.post(url, newChallenge);
