@@ -1,3 +1,6 @@
+html{
+    font-size: 18px;
+}
 body{
     margin: 0;
     background: #F9FAF1;
@@ -5,4 +8,14 @@ body{
 
 .MuiToolbar-root{
     padding: 0 !important;
+}
+
+@media (max-width: 576px){
+    .logo{
+        max-width: 100px;
+    }
+    .headerCTA-wrap .MuiButton-root{
+        padding: 5px 6px;
+        font-size: 0.725rem;
+    }
 }

@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const challengeSchema = mongoose.Schema({
     title: String,
     description: String,
+    employeeId: Number,
     tags: [String],
     likeCount: {
         type: Number,

@@ -27,8 +27,9 @@ export default function ChallengeCard({ challenge }) {
           height: '60px',
           mb: 2
         }}>{challenge.description}</Typography>
-        <Button variant="text" startIcon={<ThumbUpIcon />} size="small" onClick={() => dispatch(likeChallenge(challenge._id))} sx={{textTransform: 'capitalize', color: '#007aff'}}>Upvote {challenge.likeCount}</Button>
+        <Button variant="text" startIcon={<ThumbUpIcon />} size="small" onClick={() => dispatch(likeChallenge(challenge._id, challenge.employeeId))} sx={{textTransform: 'capitalize', color: '#007aff'}}>Upvote {challenge.likeCount}</Button>
       </CardContent>
+      <p>{console.log(challenge)}</p>
     </Card>
   );
 }

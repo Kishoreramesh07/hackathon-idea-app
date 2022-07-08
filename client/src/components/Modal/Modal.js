@@ -11,9 +11,9 @@ const tags = [
 ];
 
 export default function Modal({ open, setOpen }) {
-
+    let employeeId = sessionStorage.getItem('employeeId')
     const [tagsSelected, setTagsSelected] = useState([]);
-    const [challengeData, setChallengeData] = useState({ title: '', description: '', tags: '' });
+    const [challengeData, setChallengeData] = useState({ title: '', description: '', employeeId: employeeId, tags: '' });
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const [validationError, setValidationError] = useState(null);
 
@@ -39,7 +39,7 @@ export default function Modal({ open, setOpen }) {
             setValidationError('Please selecte atleast one tag')
         } else {
             dispatch(createChallenge(challengeData));
-            setChallengeData({ title: '', description: '', tags: '' });
+            setChallengeData({ title: '', description: '', employeeId: employeeId, tags: '' });
             setTagsSelected([])
             setOpen(false);
         }
@@ -107,6 +107,7 @@ export default function Modal({ open, setOpen }) {
                 <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
             {validationError && <Snackbar autoHideDuration={3000} open={openSnackBar} message={validationError} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} onClose={() => setOpenSnackBar(false)} />}
+            <p>{console.log(challengeData)}</p>
         </Dialog>
     )
 }
