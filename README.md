@@ -1,4 +1,4 @@
-# Welcome to Scripbox hackathon ideas App
+# Welcome to hackathon ideas App
 
 Project setup: 
 
