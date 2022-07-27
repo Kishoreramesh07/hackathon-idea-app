@@ -24,7 +24,6 @@ export default function SortChallenge() {
 
     return (
         <Container sx={{pt: 4.5}}>
-            <Typography  variant="h5">Hackathon challenges</Typography>
             <FormControl size="small" sx={{pt: 3}}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography  variant="subtitle2" sx={{pr: 1}}>Sort By</Typography>
