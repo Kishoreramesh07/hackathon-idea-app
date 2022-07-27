@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { Container, AppBar, Box, Button, Toolbar } from '@mui/material';
+import { Container, AppBar, Button, Toolbar, Typography } from '@mui/material';
 import Modal from '../Modal/Modal';
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
             <AppBar position="static" sx={{ background: '#fff', borderBottom: 'solid 1px #e4e4e4', boxShadow: 'none' }}>
                 <Container>
                     <Toolbar sx={{ justifyContent: 'space-between', px: 0 }}>
-                        <Box component="img" alt="Scripbox Logo" src="https://asset11.scripbox.com/assets/logo-51c21f8c74532748f6acbc82e354cbe3feb2bb2f8eee49b4ecde59993b2528ba.svg" />
+                        <Typography variant="h5" sx={{color: '#0f0f0f'}}>Hackathon challenges</Typography>
                         <Button variant="contained" sx={{
                             backgroundColor: '#10AC84',
                             fontWeight: 600,
